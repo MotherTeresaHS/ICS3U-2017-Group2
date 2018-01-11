@@ -13,7 +13,7 @@ class main_menu_scene(Scene):
         # this method is called, when user moves to this scene
         
         # add background color
-        self.background = SpriteNode('assets/sprites/star_background.png',
+        self.background = SpriteNode('assets/sprites/star_background.PNG',
         															color = '#636363',
         															position = self.size / 2,              
                                     	parent = self, 
