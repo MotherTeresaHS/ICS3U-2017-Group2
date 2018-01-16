@@ -27,5 +27,5 @@ from splash_scene import *
 main_view = ui.View()
 scene_view = SceneView(frame = main_view.bounds, flex = 'WH')
 main_view.add_subview(scene_view)
-scene_view.scene = SplashScene()
+scene_view.scene = splash_scene()
 main_view.present(hide_title_bar = True, animated = False)

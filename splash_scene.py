@@ -14,11 +14,11 @@ from scene import *
 import ui
 import time
 
-from main_menu_scene import *
 
 
-class SplashScene(Scene):
-    def setup(self):
+
+class splash_scene (Scene):
+    def setup (self):
         # this method is called, when user moves to this scene
         
         # create timer, so that after 2 seconds move to next scene
@@ -34,36 +34,36 @@ class SplashScene(Scene):
                                        position = self.size/2,
                                        size = self.size / 2)
     
-    def update(self):
+    def update (self):
         # this method is called, hopefully, 60 times a second
         
         # after 2 seconds, move to main menu scene
-        if not self.presented_scene and time.time() - self.start_time > 5:
-            self.present_modal_scene(MainMenuScene())
+        if not self.presented_scene and time.time() - self.start_time > 2:
+            self.present_modal_scene(main_menu_scene())
     
-    def touch_began(self, touch):
+    def touch_began (self, touch):
         # this method is called, when user touches the screen
         pass
     
-    def touch_moved(self, touch):
+    def touch_moved (self, touch):
         # this method is called, when user moves a finger around on the screen
         pass
     
-    def touch_ended(self, touch):
+    def touch_ended (self, touch):
         # this method is called, when user releases a finger from the screen
         pass
     
-    def did_change_size(self):
+    def did_change_size (self):
         # this method is called, when user changes the orientation of the screen
         # thus changing the size of each dimension
         pass
     
-    def pause(self):
+    def pause (self):
         # this method is called, when user touches the home button
         # save anything before app is put to background
         pass
     
-    def resume(self):
+    def resume (self):
         # this method is called, when user place app from background 
         # back into use. Reload anything you might need.
         pass

@@ -5,17 +5,33 @@
 
 from scene import *
 import ui
+from game_scene import *
 
 
-class MainMenuScene(Scene):
+class main_menu_scene(Scene):
     def setup(self):
         # this method is called, when user moves to this scene
         
         # add background color
-        self.background = SpriteNode(position = self.size / 2, 
-                                     color = 'white', 
-                                     parent = self, 
-                                     size = self.size)
+        self.background = SpriteNode('assets/sprites/star_background.PNG',
+        															color = '#636363',
+        															position = self.size / 2,              
+                                    	parent = self, 
+                                    	size = self.size)
+        self.slime_text = LabelNode(font = ('Chalkduster', 72),
+        															text = 'SLIME',
+        															color = 'green',
+        															position = (self.size.x / 2, self.size.y * 0.85),
+        															parent = self)
+        self.hunter_text = LabelNode(font = ('American Typewriter', 72),
+        															text = 'HUNTER',
+        															color = '#d5fff9',
+        															position = (self.size.x / 2, self.size.y * 0.75),
+        															parent = self)
+        self.start_button = SpriteNode('assets/sprites/start_button.PNG',
+        																position = (self.size.x / 2, self.size.y * 0.25),
+        																size = (300, 120),
+        																parent = self)
     
     def update(self):
         # this method is called, hopefully, 60 times a second
@@ -31,6 +47,8 @@ class MainMenuScene(Scene):
     
     def touch_ended(self, touch):
         # this method is called, when user releases a finger from the screen
+        if (self.start_button.frame.contains_point(touch.location)):
+        	self.present_modal_scene(game_scene())
         pass
     
     def did_change_size(self):
